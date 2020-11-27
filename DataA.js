@@ -11,7 +11,7 @@ women = gender('Female')
 females = people.filter(women)
 
 console.log(`the number of females is ${females.length}`)
-
+module.exports = gender
 
 //2. Find all people that are older than 35.
 function ageComparision(ageLim, OY){
@@ -31,7 +31,7 @@ olderThan35 = ageComparision(35, 'older')
 oldPeople35 = people.filter(olderThan35)
 
 console.log(`the number of people older than 35 is ${oldPeople35.length}`)
-
+module.exports = ageComparision
 
 //3. The total age of all people summed.
 age = 0
@@ -44,7 +44,7 @@ totalAge = people.map(sumAge)
 age = 0
 
 console.log(`the total age of the people is ${totalAge[totalAge.length-1]}`)
-
+module.exports = sumAge
 
 //4. Average age of all people.
 aveAgeOfPeople = totalAge[totalAge.length-1]/totalAge.length
@@ -87,7 +87,9 @@ c = a.map(vectors_op).map(abs)
 d = Math.max(...c)
 
 console.log(`The largest age gap between 2 consecutive people is ${d}`)
-
+module.exports = sortByAge
+module.exports = vectors_op
+module.exports = abs
 
 //8. Count the number of males that are younger than 43 but older than 22.
 youngerThan43 = ageComparision(43, 'younger')
@@ -116,7 +118,7 @@ starts_L = nameFilter('L', 'first_name', 'starts')
 peopleNameStart_L = people.filter(starts_L)
 
 console.log(`The number of people whos name starts with L is ${peopleNameStart_L.length}`)
-
+module.exports = nameFilter
 
 //10. Count the average age of everyone who is between the ages of 35 and 80 and their last name starts with the letter D. 
 starts_D = nameFilter('D', 'last_name', 'starts')
@@ -130,7 +132,7 @@ between80_35 = people.filter(starts_D).filter(youngerThan80).filter(olderThan35)
 average = between80_35.reduce(sum ,0) / between80_35.length
 
 console.log(`The average age of people between 80 and 35 and their last name starts with D is ${Math.round(average)}`)
-
+module.exports = sum
 
 //11. Increment the age with 1 year for everyone that has a first name that starts with letter K and last name that ends with letter s. 
 FN_start_K = nameFilter('K', 'first_name', 'starts')
@@ -143,3 +145,4 @@ function increaseAge (object){
 peopleAge_plus_1 = people.filter(FN_start_K).filter(LN_ends_s).map(increaseAge)
 
 console.log(`The ages increased by one are: ${peopleAge_plus_1}`)
+//module.exports = increaseAge
