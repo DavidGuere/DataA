@@ -1,4 +1,5 @@
 people = require('./MOCK_DATA.json')
+const { ageComparision } = require('./DataA.js')
 const fn = require('./DataA.js')
 
 //1. Count the number of females
@@ -44,7 +45,9 @@ b.push([0])
 c = a.map(fn.vectors_op).map(fn.abs)
 d = Math.max(...c)
 
-console.log(`7. The largest age gap between 2 consecutive people is ${d}`)
+e = fn.maxAgeGap(people)
+
+console.log(`7. The largest age gap between 2 consecutive people is ${e}`)
 
 //8. Count the number of males that are younger than 43 but older than 22.
 youngerThan43 = fn.ageComparision(43, 'younger')
@@ -78,3 +81,4 @@ LN_ends_s = fn.nameFilter('s', 'last_name', 'ends')
 peopleAge_plus_1 = people.filter(FN_start_K).filter(LN_ends_s).map(fn.increaseAge)
 
 console.log(`11. The ages increased by one are: ${peopleAge_plus_1}`)
+
