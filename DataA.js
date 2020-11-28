@@ -36,6 +36,31 @@ function vectors_op (object, index){
 function abs (object){
     return Math.abs(object)
 }
+// Second method
+function maxAgeGap(object){
+    function first (object){
+        return object.age
+    }
+
+    a = object.map(first)
+    b = [...a]
+    a.unshift(0)
+    b.push(0)
+
+    function second (object2, index){
+        return b[index]-object2
+    }
+
+    function third (object3){
+        return Math.abs(object3)
+    }
+
+    c = a.map(second).map(third)
+    c.shift()
+    c.pop()
+
+    return Math.max(...c)
+}
 
 //9. Count the number of people who starts their first name with the letter L. 
 function nameFilter (letter, name, position){
@@ -51,14 +76,9 @@ function nameFilter (letter, name, position){
     }
 }
 
-//10. Count the average age of everyone who is between the ages of 35 and 80 and their last name starts with the letter D. 
-function sum(prev, curr){
-    return prev + curr.age
-}
-
 //11. Increment the age with 1 year for everyone that has a first name that starts with letter K and last name that ends with letter s. 
 function increaseAge (object){
     return object.age + 1
 }
 
-module.exports = {gender, ageComparision, increaseAge, sumAge, sortByAge, vectors_op, abs, nameFilter}
+module.exports = {gender, ageComparision, increaseAge, sumAge, sortByAge, vectors_op, abs, nameFilter, maxAgeGap}
